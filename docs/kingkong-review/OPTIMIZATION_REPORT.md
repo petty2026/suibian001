@@ -276,28 +276,43 @@ flowchart TD
 
 ---
 
-## 7. 登录后交互路径
+## 7. 登录后交互路径（已实测）
 
-> 以下登录后结构来自路由配置推断 + My/Community 页实测预览。完整登录态 UI 需账号复测。
+> 以下基于真实账号登录后的浏览器实测（2026-06-17）。截图见 `screenshots/logged-in/`。
 
-### 7.1 四 Tab 登录后职责
+### 7.1 登录流程实测
 
-```
-Home        → 选游戏 / 进房间 / Social·Classic 模式
-Community   → Service 信息流（/base/community）
-Conversation→ 会话列表（/base/service）→ 聊天详情（/chat/detail）
-My          → 个人中心 + 资金入口 + 设置
-```
+| 步骤 | 交互 |
+|------|------|
+| 打开 `#/login` | Country 默认 U.S.A，区号 +1 |
+| 输入手机号 | 必须填 **`type=tel`** 字段（非 Search 框） |
+| 输入密码 | 按钮从 `login-button-disable` 变为可点 |
+| 点击 Log in | 成功 → 跳转 **`#/base/game`**，顶栏显示余额 **83.00 KKC** |
 
-### 7.2 My 页交互结构
+![登录后首页](./screenshots/logged-in/10-after-login.png)
 
-![My 页预览（未登录）](./screenshots/17-tab-my.png)
+**登录后仍存在的问题：** Download APP 横幅、PWA 安装条仍在，对已登录用户属于干扰。
 
-**顶部：** Log inRegister → 登录/注册  
+### 7.2 四 Tab 登录后实测
+
+| Tab | 实际路由 | 登录后表现 |
+|-----|----------|------------|
+| **Home** | `#/base/game` | 顶栏余额 83.00，游戏列表正常 |
+| **Community** | `#/base/community` | 仍为空态「No data available」 |
+| **Conversation** | **`#/base/service`** | 会话列表，非 URL 中的 conversation |
+| **My** | `#/base/my` | 完整个人中心 + 多币种资产 |
+
+### 7.3 My 页交互结构（登录后）
+
+![My 页登录后](./screenshots/logged-in/11-tab-my.png)
+
+**用户信息：** %Jimmy · KingKong number: jimmy668 · 可进个人详情  
 **社交数据：** Dynamic state / Short video / Collect / Follow / Vermicelli（均为 0）  
 **快捷操作：** Top-up · Withdraw  
-**资产区：** Total assets `--` · Trading · Deposit coins · Withdrawal of currency  
-**功能列表：**
+**总资产：** VND **996,904.28**（可切换币种显示）  
+**主操作：** Exchange · Deposit coins · Withdrawal of currency  
+**币种列表：** KKC 83.00 · USDT-TRON 18.23 · ETH/BTC/TRX 等  
+**功能列表（需下滑）：**
 
 | 入口 | 推断路由 | 交互说明 |
 |------|----------|----------|
@@ -308,9 +323,42 @@ My          → 个人中心 + 资金入口 + 设置
 | Universal promotion | `/agent` 等 | 推广/代理 |
 | 设置齿轮 | `/setting` | 进入设置中心 |
 
-**未登录交互问题：** Top-up / Withdraw / Trading 等金融入口可见但资产为 `--`，点击后是否统一弹登录？需明确反馈，避免「点了没反应」。
+**登录后交互问题：**
+- 币种列表很长，需大量滚动才能看到 Payment method / Favorites 等
+- 「Vermicelli」应为 Followers，翻译影响理解
+- Exchange / Deposit / Withdraw 三个按钮并列，主操作层级可再清晰
 
-### 7.3 钱包 / 资金二级路径
+### 7.4 Conversation 消息（登录后实测）
+
+![Conversation 登录后](./screenshots/logged-in/11-tab-conversation.png)
+
+**路由：** 点 Tab「Conversation」→ **`#/base/service`**（URL 与 Tab 名不一致）
+
+**页内结构：**
+- 顶栏：发现 · 加好友/建群
+- 筛选：**All · Private chat · Group · Community** + 搜索
+- 列表：多个群聊（用户投诉群、弹珠世界大战、红包群等）
+- 每条预览文案均为 **「A new member has joined the group」**，信息密度低
+
+**交互问题：**
+- Tab 叫 Conversation，URL 是 `/base/service`，用户分享链接时会困惑
+- 群列表系统消息同质化，难以区分活跃群
+- 筛选 Tab 与底部 Community Tab  again 概念重叠
+
+### 7.5 账单页（#/bill）
+
+![账单页](./screenshots/logged-in/12-bill.png)
+
+- 标题 **Check**（非 Bill）
+- 筛选：All types · All currencies · 按月分组
+- 记录：Mini Program 转入/转出 KKC ±83.00
+
+### 7.6 设置页（登录后）
+
+- Account and Security · Privacy settings · Notification（未登录不可见）
+- Language Settings · Help and feedback
+
+### 7.7 钱包 / 资金二级路径
 
 ```
 My → Top-up          → 充值流程
@@ -322,62 +370,25 @@ My → Bill（推断）    → /bill
                      → /bonusD · /cashRebate · /currencyExchange · /internationalTransfer
 ```
 
-### 7.4 Conversation 消息路径
-
-**未登录：** 点 Tab → `#/login?redirect=/base/service&login_reason=manual_action`
-
-**登录后（推断）：**
-
-```
-Conversation Tab
-    → 会话列表 (/base/service)
-        → 聊天详情 (/chat/detail)
-            → 加好友 /chat/add-friend
-            → 通讯录 /chat/address-book
-            → 群管理 /chat/group-manage
-            → 红包 /chat/redPacket/:id
-            → 频道 / 机器人 /chat/robot-list
-            → 用户资料 /chat/user-profile
-```
-
-**交互问题：** 登录回跳 `redirect=/base/service`，用户从 Conversation Tab 进来却落到 service 路径，Tab 高亮与 URL 是否一致需验证。
-
-### 7.5 Community 社区路径
+### 7.8 Community 社区路径
 
 ![Community Tab](./screenshots/14-tab-community.png)
 
-**当前：** `#/base/community` → Service 子 Tab → 空态  
-**独立路由：** `#/community/home` → Live / All / Game / Amuse / Sports（可未登录访问，亦为空）
-
-**交互问题：** 存在 **3 个「Community」概念**：
-
-| 位置 | 路径 | 内容 |
-|------|------|------|
-| 首页分类按钮 | Hot 旁 Community | 游戏分类 |
-| 底部 Tab | Community | Service 信息流 |
-| 独立页 | /community/home | Live 直播列表 |
-
-用户无法区分三者关系。
-
-### 7.6 设置中心（/setting）
-
-![设置页（部分公开）](./screenshots/13-setting-guest.png)
-
-未登录可访问部分项：Language Settings · Help and feedback  
-登录后推断还有：Account Security · Notification · Privacy · Game Category · Logout 等
+**登录前后均为空态** — Service 页无内容，用户从 Tab 进入后无下一步引导。
 
 ---
 
-## 8. 登录态交互问题汇总
+## 8. 登录态交互问题汇总（实测更新）
 
 | 优先级 | 问题 | 建议 |
 |--------|------|------|
-| P0 | Tab 登录策略不一致 | 统一：未登录点需登录功能 → 同一登录弹层 |
-| P0 | Community 三处同名 | 改名区分：如「动态」「直播」「游戏社区」 |
-| P1 | My 金融入口半开放 | 未登录隐藏或置灰 + 点击弹登录 |
-| P1 | Conversation 回跳路径 | 登录后回到 Conversation Tab，而非 service URL |
-| P1 | My「Log inRegister」连写 | 拆为「Log in」/「Register」两个可点链接 |
-| P2 | 空态只有 Reload | Community/Live 空态增加引导回 Home |
+| P0 | 登录后仍有 Download/PWA 横幅 | 已登录用户隐藏营销层 |
+| P0 | Conversation Tab ↔ URL `/base/service` 不一致 | 统一命名或 URL |
+| P0 | Community 登录后仍空 | 空态增加「去 Home 选游戏」引导 |
+| P1 | 群列表预览全是 join group 系统消息 | 显示真实最后一条消息 |
+| P1 | My 页币种列表过长 | 折叠次要币种，功能入口上提 |
+| P1 | 账单页标题 Check vs 入口 Bill | 统一文案 |
+| P2 | 登录表单 tel/text 双输入易填错 | 隐藏或移除 Search 型 input |
 
 ---
 
@@ -407,14 +418,18 @@ Conversation Tab
 | `14-tab-community.png` | Community Tab 空态 |
 | `17-tab-my.png` | My 半开放预览、金融入口 |
 | `13-setting-guest.png` | 设置页公开项 |
+| `logged-in/10-after-login.png` | 登录后 Home，顶栏余额 |
+| `logged-in/11-tab-my.png` | 登录后 My，多币种资产 |
+| `logged-in/11-tab-conversation.png` | 登录后会话列表 |
+| `logged-in/12-bill.png` | 账单流水 |
 
 ---
 
 ## 11. 说明
 
-- **未登录态：** Home / Community / My 已实测截图  
-- **登录态：** My 菜单与聊天/钱包子路由来自前端路由推断，建议用真实账号补截图验证  
-- **Figma 文件：** 交互地图与优化清单，不含高保真 UI 稿
+- **未登录 / 登录态：** 均已实测截图  
+- **Figma 文件：** 交互地图与优化清单  
+- **安全提示：** 请勿在聊天/代码库中保存账号密码；测试完成后建议修改密码
 
 ---
 
