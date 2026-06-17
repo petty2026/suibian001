@@ -15,6 +15,23 @@
 | **账单** | https://kingkong.ac/mobile.html#/bill |
 | **语言设置** | https://kingkong.ac/mobile.html#/setting/language |
 
+## 金刚牌局 · 大厅（子应用）
+
+从 H5 首页进入路径：
+
+1. 登录账号
+2. `#/base/game` → 保持 **社交模式**
+3. 二级分类点 **牌局**
+4. 点击游戏卡片（牛牛 / 炸金花 / 三公 / 十三水）
+
+进入后路由变为 `#/miniapp?url=...`，内嵌 iframe：
+
+- 加载页：`prod-broadgame-client.api987.com/vue/#/loading?...&subGameKey=NiuNiu`
+- **大厅页（好友组局）**：`prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend`
+- 若账号有未完成牌桌，会自动跳：`#/detail?room=904949&gameType=1`
+
+> 大厅 UI 为 Cocos Canvas，自动化截图可能全黑，但路由可验证已进入。
+
 ## 不可用 / 勿用
 
 - `go-h5-app.comstg.com` — Cloudflare 403，无法访问
