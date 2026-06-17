@@ -263,20 +263,158 @@ flowchart TD
 
 ---
 
-## 6. 截图索引
+## 6. 底部 Tab 交互（实测）
+
+| Tab | 路由 | 未登录能否进入 | 实际表现 |
+|-----|------|----------------|----------|
+| **Home** | `#/base/game` | ✅ | 游戏首页，可浏览 |
+| **Community** | `#/base/community` | ✅ | Service 页，空态「No data available」 |
+| **Conversation** | — | ❌ | **立即跳登录** `redirect=/base/service` |
+| **My** | `#/base/my` | ⚠️ 半开放 | 可预览个人中心，资产显示 `--` |
+
+**交互问题：** 四个 Tab 的「门槛」不一致——Community/My 能进，Conversation 强制登录，用户难以理解规则。
+
+---
+
+## 7. 登录后交互路径
+
+> 以下登录后结构来自路由配置推断 + My/Community 页实测预览。完整登录态 UI 需账号复测。
+
+### 7.1 四 Tab 登录后职责
+
+```
+Home        → 选游戏 / 进房间 / Social·Classic 模式
+Community   → Service 信息流（/base/community）
+Conversation→ 会话列表（/base/service）→ 聊天详情（/chat/detail）
+My          → 个人中心 + 资金入口 + 设置
+```
+
+### 7.2 My 页交互结构
+
+![My 页预览（未登录）](./screenshots/17-tab-my.png)
+
+**顶部：** Log inRegister → 登录/注册  
+**社交数据：** Dynamic state / Short video / Collect / Follow / Vermicelli（均为 0）  
+**快捷操作：** Top-up · Withdraw  
+**资产区：** Total assets `--` · Trading · Deposit coins · Withdrawal of currency  
+**功能列表：**
+
+| 入口 | 推断路由 | 交互说明 |
+|------|----------|----------|
+| Payment method | `/transactionMethod/*` | 绑定钱包/微信等 |
+| Live streaming center | — | 直播中心 |
+| Favorites | `game/my-favorites` | 游戏收藏 |
+| Invite friends | `/invite` | 邀请记录 `/invite/records` |
+| Universal promotion | `/agent` 等 | 推广/代理 |
+| 设置齿轮 | `/setting` | 进入设置中心 |
+
+**未登录交互问题：** Top-up / Withdraw / Trading 等金融入口可见但资产为 `--`，点击后是否统一弹登录？需明确反馈，避免「点了没反应」。
+
+### 7.3 钱包 / 资金二级路径
+
+```
+My → Top-up          → 充值流程
+My → Withdraw        → /withdraw
+My → Trading         → /transfer · /transfer/record
+My → Deposit coins   → 入金
+My → Payment method  → /transactionMethod/addWallet 等
+My → Bill（推断）    → /bill
+                     → /bonusD · /cashRebate · /currencyExchange · /internationalTransfer
+```
+
+### 7.4 Conversation 消息路径
+
+**未登录：** 点 Tab → `#/login?redirect=/base/service&login_reason=manual_action`
+
+**登录后（推断）：**
+
+```
+Conversation Tab
+    → 会话列表 (/base/service)
+        → 聊天详情 (/chat/detail)
+            → 加好友 /chat/add-friend
+            → 通讯录 /chat/address-book
+            → 群管理 /chat/group-manage
+            → 红包 /chat/redPacket/:id
+            → 频道 / 机器人 /chat/robot-list
+            → 用户资料 /chat/user-profile
+```
+
+**交互问题：** 登录回跳 `redirect=/base/service`，用户从 Conversation Tab 进来却落到 service 路径，Tab 高亮与 URL 是否一致需验证。
+
+### 7.5 Community 社区路径
+
+![Community Tab](./screenshots/14-tab-community.png)
+
+**当前：** `#/base/community` → Service 子 Tab → 空态  
+**独立路由：** `#/community/home` → Live / All / Game / Amuse / Sports（可未登录访问，亦为空）
+
+**交互问题：** 存在 **3 个「Community」概念**：
+
+| 位置 | 路径 | 内容 |
+|------|------|------|
+| 首页分类按钮 | Hot 旁 Community | 游戏分类 |
+| 底部 Tab | Community | Service 信息流 |
+| 独立页 | /community/home | Live 直播列表 |
+
+用户无法区分三者关系。
+
+### 7.6 设置中心（/setting）
+
+![设置页（部分公开）](./screenshots/13-setting-guest.png)
+
+未登录可访问部分项：Language Settings · Help and feedback  
+登录后推断还有：Account Security · Notification · Privacy · Game Category · Logout 等
+
+---
+
+## 8. 登录态交互问题汇总
+
+| 优先级 | 问题 | 建议 |
+|--------|------|------|
+| P0 | Tab 登录策略不一致 | 统一：未登录点需登录功能 → 同一登录弹层 |
+| P0 | Community 三处同名 | 改名区分：如「动态」「直播」「游戏社区」 |
+| P1 | My 金融入口半开放 | 未登录隐藏或置灰 + 点击弹登录 |
+| P1 | Conversation 回跳路径 | 登录后回到 Conversation Tab，而非 service URL |
+| P1 | My「Log inRegister」连写 | 拆为「Log in」/「Register」两个可点链接 |
+| P2 | 空态只有 Reload | Community/Live 空态增加引导回 Home |
+
+---
+
+## 9. Figma 设计文件
+
+交互梳理已同步至 Figma：
+
+**[KingKong H5 交互梳理](https://www.figma.com/design/T8PcoyyXrzMoNM5YFlrTJU)**
+
+| 页面 | 内容 |
+|------|------|
+| 00 Cover | 报告封面 |
+| 01 交互总览 | 四 Tab 权限关系 |
+| 02 未登录路径 | 5 条访客操作路径 |
+| 03 登录后路径 | My / Conversation / 钱包 / 聊天子路径 |
+| 04 优化建议 | P0–P2 交互优化清单 |
+
+---
+
+## 10. 截图索引
 
 | 文件 | 交互关注点 |
 |------|------------|
 | `01-initial-load.png` | 首屏入口层级、遮挡关系 |
-| `04-login-page.png` | 登录表单、按钮状态、Register 位置 |
-| `06-game-scrolled.png` | 滚动浏览时的遮挡 |
+| `04-login-page.png` | 登录表单、按钮状态 |
 | `07-classic-mode.png` | 模式切换反馈缺失 |
+| `14-tab-community.png` | Community Tab 空态 |
+| `17-tab-my.png` | My 半开放预览、金融入口 |
+| `13-setting-guest.png` | 设置页公开项 |
 
 ---
 
-## 7. 说明
+## 11. 说明
 
-本次梳理基于 **未登录访客态**。登录后「My / Conversation / 钱包」等模块会有更多交互路径，建议在登录态下单独补一版交互地图。
+- **未登录态：** Home / Community / My 已实测截图  
+- **登录态：** My 菜单与聊天/钱包子路由来自前端路由推断，建议用真实账号补截图验证  
+- **Figma 文件：** 交互地图与优化清单，不含高保真 UI 稿
 
 ---
 

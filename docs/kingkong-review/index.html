@@ -121,30 +121,44 @@
       </table>
     </div>
 
-    <h2>三、建议用户路径</h2>
-    <div class="card">
-      <pre>【当前】打开首页 → 同时看到 Login / Download / PWA / 游戏 → 路径分叉
-
-【建议】打开首页 → 直接浏览游戏 → 点击卡片 → 登录弹层 → 进入游戏
-                  ↘ 顶部 Login（完整登录页）
-                  ↘ My 页内 Download / 添加主屏幕（次要）</pre>
-    </div>
-
-    <h2>四、优化清单</h2>
+    <h2>三、底部 Tab 交互（实测）</h2>
     <div class="card">
       <table>
-        <tr><th>优先级</th><th>改什么</th><th>用户感受</th></tr>
-        <tr><td>P0</td><td>收敛首屏入口</td><td>「我知道该干嘛」</td></tr>
-        <tr><td>P0</td><td>模式切换联动内容</td><td>「切换有反应」</td></tr>
-        <tr><td>P0</td><td>悬浮层可收起</td><td>「点游戏不会误触」</td></tr>
-        <tr><td>P1</td><td>点游戏 → 登录引导</td><td>「进游戏前知道要登录」</td></tr>
-        <tr><td>P1</td><td>登录按钮状态清晰</td><td>「我知道能不能点」</td></tr>
-        <tr><td>P2</td><td>收藏/分类切换 toast</td><td>「操作有回应」</td></tr>
+        <tr><th>Tab</th><th>未登录</th><th>表现</th></tr>
+        <tr><td>Home</td><td>✅ 可进</td><td>游戏首页</td></tr>
+        <tr><td>Community</td><td>✅ 可进</td><td>Service 空态</td></tr>
+        <tr><td>Conversation</td><td>❌ 跳登录</td><td>redirect=/base/service</td></tr>
+        <tr><td>My</td><td>⚠️ 半开放</td><td>可见充值/提现，资产 --</td></tr>
       </table>
     </div>
 
+    <div class="grid">
+      <figure class="shot card">
+        <img src="screenshots/14-tab-community.png" alt="Community Tab" />
+        <figcaption><strong>Community Tab</strong> — Service 空态，与首页「Community」分类易混。</figcaption>
+      </figure>
+      <figure class="shot card">
+        <img src="screenshots/17-tab-my.png" alt="My Tab" />
+        <figcaption><strong>My Tab（未登录预览）</strong> — 金融入口可见，Log inRegister 连写，资产为 --。</figcaption>
+      </figure>
+    </div>
+
+    <h2>四、登录后路径（推断 + 预览）</h2>
+    <div class="card">
+      <pre>My → Top-up / Withdraw / Trading / Payment method / Favorites / Invite
+Conversation → 会话列表 → /chat/detail → 群聊/红包/机器人
+钱包二级 → /withdraw · /transfer · /bill · /bonusD · /cashRebate</pre>
+      <p><strong>P0：</strong>Tab 登录策略统一 · Community 三处同名去重 · My 金融入口未登录行为一致</p>
+    </div>
+
+    <h2>五、Figma 设计文件</h2>
+    <div class="card">
+      <p>交互地图已生成至 Figma，含 5 个页面：Cover · 总览 · 未登录路径 · 登录后路径 · 优化建议。</p>
+      <p><a href="https://www.figma.com/design/T8PcoyyXrzMoNM5YFlrTJU" target="_blank" rel="noopener">打开 Figma：KingKong H5 交互梳理</a></p>
+    </div>
+
     <div class="note">
-      <strong>说明：</strong>本次仅梳理交互，不含性能/技术架构。基于未登录访客态，登录后路径需另行补图。
+      <strong>说明：</strong>登录后完整 UI 需真实账号复测；My/聊天/钱包子路由来自前端路由推断。
     </div>
 
     <footer>完整版见 OPTIMIZATION_REPORT.md · Cursor Cloud Agent</footer>
