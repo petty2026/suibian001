@@ -394,17 +394,20 @@ My → Bill（推断）    → /bill
 
 ## 9. Figma 设计文件
 
-交互梳理已同步至 Figma：
+交互梳理已按 **「16:9 幻灯片 + 截图 + 现状问题 / 优化建议」** 格式整理（参考现金系统文档结构）：
 
-**[KingKong H5 交互梳理](https://www.figma.com/design/T8PcoyyXrzMoNM5YFlrTJU)**
+**[KingKong H5 交互梳理 — 汇总页](https://www.figma.com/design/T8PcoyyXrzMoNM5YFlrTJU?node-id=15-2)**
 
-| 页面 | 内容 |
-|------|------|
-| 00 Cover | 报告封面 |
-| 01 交互总览 | 四 Tab 权限关系 |
-| 02 未登录路径 | 5 条访客操作路径 |
-| 03 登录后路径 | My / Conversation / 钱包 / 聊天子路径 |
-| 04 优化建议 | P0–P2 交互优化清单 |
+| 幻灯片 | 主题 |
+|--------|------|
+| 封面 | KingKong H5 交互优化建议 · 现状及问题整理 |
+| 01 | 首屏信息架构 |
+| 02 | 登录流程 |
+| 03 | 底部 Tab 权限与命名 |
+| 04 | My 页（登录后实测） |
+| 05 | Conversation 消息 |
+| 06 | 登录后 Home 营销层残留 |
+| 07 | 账单页文案与信息 |
 
 ---
 
