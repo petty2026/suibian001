@@ -1,0 +1,144 @@
+{
+  "room": "501813",
+  "steps": [
+    {
+      "action": "click-加入房间",
+      "text": {
+        "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend": "炸金花 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的",
+        "https://prod-broadgame-client.api987.com/?time=1781752801488": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+      },
+      "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend"
+    },
+    {
+      "action": "input-room-501813",
+      "text": {
+        "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend": "炸金花 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的",
+        "https://prod-broadgame-client.api987.com/?time=1781752801488": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+      },
+      "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend"
+    },
+    {
+      "action": "direct-nav-detail",
+      "text": {},
+      "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+    }
+  ],
+  "nav": [
+    {
+      "t": 1781752800112,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTI3OTksImV4cCI6MTc4NDM0NDc5OX0.QnS4dEVa_t7LPrHE7JYM2-qwC-4HSk-IKdqTyCruXZw&user_id=121727&subGameKey=ZhaJingHua"
+    },
+    {
+      "t": 1781752800291,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTI3OTksImV4cCI6MTc4NDM0NDc5OX0.QnS4dEVa_t7LPrHE7JYM2-qwC-4HSk-IKdqTyCruXZw&user_id=121727&subGameKey=ZhaJingHua"
+    },
+    {
+      "t": 1781752801024,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTI3OTksImV4cCI6MTc4NDM0NDc5OX0.QnS4dEVa_t7LPrHE7JYM2-qwC-4HSk-IKdqTyCruXZw&user_id=121727&subGameKey=ZhaJingHua"
+    },
+    {
+      "t": 1781752801461,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTI3OTksImV4cCI6MTc4NDM0NDc5OX0.QnS4dEVa_t7LPrHE7JYM2-qwC-4HSk-IKdqTyCruXZw&user_id=121727&subGameKey=ZhaJingHua"
+    },
+    {
+      "t": 1781752801463,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend"
+    },
+    {
+      "t": 1781752801777,
+      "url": "https://prod-broadgame-client.api987.com/?time=1781752801488"
+    },
+    {
+      "t": 1781752913360,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+    },
+    {
+      "t": 1781752913363,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+    }
+  ],
+  "entry": {
+    "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend",
+    "text": {
+      "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend": "炸金花 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的",
+      "https://prod-broadgame-client.api987.com/?time=1781752801488": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+    }
+  },
+  "roomResult": {
+    "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1",
+    "cocosUrl": "https://prod-broadgame-client.api987.com/?time=1781752801488"
+  },
+  "inRoom": {
+    "interactions": [
+      {
+        "action": "click-seat-top",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-seat-left",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-seat-right",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-seat-bottom-left",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-seat-bottom-right",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-seat-center-msg",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-menu",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-share",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-trophy",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-stats",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-minimize",
+        "text": {},
+        "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+      },
+      {
+        "action": "click-action-bottom-center",
+        "text": {}
+      },
+      {
+        "action": "click-action-bottom-left",
+        "text": {}
+      },
+      {
+        "action": "click-action-bottom-right",
+        "text": {}
+      }
+    ],
+    "finalText": {},
+    "finalUrl": "https://prod-broadgame-client.api987.com/vue/#/detail?room=501813&gameType=1"
+  }
+}
