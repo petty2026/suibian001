@@ -1,0 +1,15 @@
+{
+  "hash": "#/miniapp?url=https://kkgame.zgqylb.com/kingkong/setup?type=COMMUNITY_BOARD%26subGameKey=NiuNiu%26time_zone_name=UTC%26sys=KKC_H5%26lang=zh%26saas_mch_id=10001%26currency_type=2%26channel_id=17%26invi",
+  "hasLobby": false,
+  "mainText": "点击此按钮可关闭当前页面",
+  "frameData": [
+    {
+      "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=904949&gameType=1",
+      "text": ""
+    },
+    {
+      "url": "https://prod-broadgame-client.api987.com/?time=1781692611746",
+      "text": ""
+    }
+  ]
+}

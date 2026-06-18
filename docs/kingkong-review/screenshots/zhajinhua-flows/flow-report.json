@@ -1,0 +1,97 @@
+{
+  "flows": {
+    "entry": {
+      "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend",
+      "text": {
+        "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend": "炸金花 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的",
+        "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+      }
+    },
+    "createRoom": [
+      {
+        "step": "click-create",
+        "text": {
+          "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend": "炸金花 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的 炸金花 房号 1 2 3 4 5 6 7 8 9 重输 0 删除",
+          "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+        }
+      },
+      {
+        "step": "input-984332",
+        "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend",
+        "text": {
+          "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend": "炸金花 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的 炸金花 房号 9 9 8 1 2 3 4 5 6 7 8 9 重输 0 删除",
+          "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+        }
+      },
+      {
+        "step": "try-confirm",
+        "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend",
+        "text": {
+          "https://prod-broadgame-client.api987.com/vue/#/join?gameType=1&jumpType=friend": "炸金花 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的 炸金花 房号 9 9 8 1 2 3 4 5 6 7 8 9 重输 0 删除",
+          "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+        }
+      }
+    ],
+    "joinRoom": {
+      "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=984332&gameType=1",
+      "text": {}
+    },
+    "sitDown": [
+      {
+        "step": "click-seat-top",
+        "text": {
+          "https://prod-broadgame-client.api987.com/vue/#/home": "金刚牌局 帐号 %Jimmy ¥ 77.00 好友组局 世界大战 大厅 战绩查询 我的",
+          "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+        }
+      },
+      {
+        "step": "buyin-plus50-confirm",
+        "text": {
+          "https://prod-broadgame-client.api987.com/vue/#/home": "金刚牌局 帐号 %Jimmy ¥ 77.00 好友组局 世界大战 大厅 战绩查询 我的",
+          "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+        }
+      }
+    ],
+    "standUp": [
+      {
+        "step": "leave-seat-main",
+        "url": "https://prod-broadgame-client.api987.com/vue/#/history",
+        "text": {
+          "https://prod-broadgame-client.api987.com/vue/#/history": "战绩查询 炸金花 炸金花大战 牛牛大战 三公 牛牛 十三水 无参考数据... 大厅 战绩查询 我的",
+          "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+        }
+      },
+      {
+        "step": "leave-seat-btn",
+        "url": "https://prod-broadgame-client.api987.com/vue/#/history",
+        "text": {
+          "https://prod-broadgame-client.api987.com/vue/#/history": "战绩查询 炸金花 炸金花大战 牛牛大战 三公 牛牛 十三水 无参考数据... 大厅 战绩查询 我的",
+          "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+        }
+      },
+      {
+        "step": "leave-seat-low",
+        "url": "https://prod-broadgame-client.api987.com/vue/#/history",
+        "text": {
+          "https://prod-broadgame-client.api987.com/vue/#/history": "战绩查询 炸金花 炸金花大战 牛牛大战 三公 牛牛 十三水 无参考数据... 大厅 战绩查询 我的",
+          "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+        }
+      },
+      {
+        "step": "own-avatar",
+        "url": "https://prod-broadgame-client.api987.com/vue/#/history",
+        "text": {
+          "https://prod-broadgame-client.api987.com/vue/#/history": "战绩查询 炸金花 炸金花大战 牛牛大战 三公 牛牛 十三水 无参考数据... 大厅 战绩查询 我的",
+          "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+        }
+      }
+    ]
+  },
+  "final": {
+    "url": "https://prod-broadgame-client.api987.com/vue/#/mine",
+    "text": {
+      "https://prod-broadgame-client.api987.com/vue/#/mine": "我的 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的",
+      "https://prod-broadgame-client.api987.com/?time=1781762541279": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+    }
+  }
+}

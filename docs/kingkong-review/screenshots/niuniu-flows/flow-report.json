@@ -1,0 +1,139 @@
+{
+  "flows": {
+    "entry": {
+      "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend",
+      "text": {
+        "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend": "牛牛 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的",
+        "https://prod-broadgame-client.api987.com/?time=1781751411532": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+      }
+    },
+    "createRoom": {
+      "steps": [
+        {
+          "action": "click-创建房间",
+          "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend",
+          "text": {
+            "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend": "牛牛 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的 牛牛 房号 1 2 3 4 5 6 7 8 9 重输 0 删除",
+            "https://prod-broadgame-client.api987.com/?time=1781751411532": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+          },
+          "nav": [
+            {
+              "t": 1781751410725,
+              "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTE0MDksImV4cCI6MTc4NDM0MzQwOX0.tBWNC7avB_AYYMlxdIqJdiClmLce8Yb9_wDzOQdXfKU&user_id=121727&subGameKey=NiuNiu"
+            },
+            {
+              "t": 1781751411074,
+              "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTE0MDksImV4cCI6MTc4NDM0MzQwOX0.tBWNC7avB_AYYMlxdIqJdiClmLce8Yb9_wDzOQdXfKU&user_id=121727&subGameKey=NiuNiu"
+            },
+            {
+              "t": 1781751411493,
+              "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTE0MDksImV4cCI6MTc4NDM0MzQwOX0.tBWNC7avB_AYYMlxdIqJdiClmLce8Yb9_wDzOQdXfKU&user_id=121727&subGameKey=NiuNiu"
+            },
+            {
+              "t": 1781751411498,
+              "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend"
+            },
+            {
+              "t": 1781751411694,
+              "url": "https://prod-broadgame-client.api987.com/?time=1781751411532"
+            }
+          ]
+        }
+      ]
+    },
+    "joinRoom": {
+      "steps": [
+        {
+          "action": "click-加入房间",
+          "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend",
+          "text": {
+            "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend": "牛牛 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的 牛牛 房号 8 0 1 2 3 4 5 6 7 8 9 重输 0 删除",
+            "https://prod-broadgame-client.api987.com/?time=1781751411532": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+          }
+        },
+        {
+          "action": "input-room-904949+confirm",
+          "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend",
+          "text": {
+            "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend": "牛牛 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的 牛牛 房号 8 0 1 2 3 4 5 6 7 8 9 重输 0 删除",
+            "https://prod-broadgame-client.api987.com/?time=1781751411532": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+          },
+          "nav": [
+            {
+              "t": 1781751410502,
+              "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTE0MDksImV4cCI6MTc4NDM0MzQwOX0.tBWNC7avB_AYYMlxdIqJdiClmLce8Yb9_wDzOQdXfKU&user_id=121727&subGameKey=NiuNiu"
+            },
+            {
+              "t": 1781751410725,
+              "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTE0MDksImV4cCI6MTc4NDM0MzQwOX0.tBWNC7avB_AYYMlxdIqJdiClmLce8Yb9_wDzOQdXfKU&user_id=121727&subGameKey=NiuNiu"
+            },
+            {
+              "t": 1781751411074,
+              "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTE0MDksImV4cCI6MTc4NDM0MzQwOX0.tBWNC7avB_AYYMlxdIqJdiClmLce8Yb9_wDzOQdXfKU&user_id=121727&subGameKey=NiuNiu"
+            },
+            {
+              "t": 1781751411493,
+              "url": "https://prod-broadgame-client.api987.com/vue/#/loading?currency=CNY&gameKey=COMMUNITY_BOARD&gameType=COMMUNITY_BOARD&timezone=UTC&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiS0cwMDU1MDAxMjE3MjciLCJ1c2VySWQiOiIxMjE3MjciLCJ1c2VyX2lkIjoiMTIxNzI3IiwibWVyY2hhbnRfaWQiOjU1LCJpYXQiOjE3ODE3NTE0MDksImV4cCI6MTc4NDM0MzQwOX0.tBWNC7avB_AYYMlxdIqJdiClmLce8Yb9_wDzOQdXfKU&user_id=121727&subGameKey=NiuNiu"
+            },
+            {
+              "t": 1781751411498,
+              "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend"
+            },
+            {
+              "t": 1781751411694,
+              "url": "https://prod-broadgame-client.api987.com/?time=1781751411532"
+            }
+          ]
+        },
+        {
+          "action": "join-interactions",
+          "url": "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend",
+          "text": {
+            "https://prod-broadgame-client.api987.com/vue/#/join?gameType=2&jumpType=friend": "牛牛 帐号 %Jimmy ¥ 77.00 大厅 战绩查询 我的 牛牛 房号 8 0 8 0 1 2 3 4 5 6 7 8 9 重输 0 删除",
+            "https://prod-broadgame-client.api987.com/?time=1781751411532": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+          }
+        }
+      ]
+    },
+    "inRoom": {
+      "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=904949&gameType=1",
+      "cocosUrl": "https://prod-broadgame-client.api987.com/?time=1781751411532",
+      "text": {},
+      "nav": [
+        {
+          "t": 1781751618512,
+          "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=904949&gameType=1"
+        },
+        {
+          "t": 1781751618518,
+          "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=904949&gameType=1"
+        }
+      ],
+      "afterClicks": {
+        "text": {
+          "https://prod-broadgame-client.api987.com/vue/#/home": "金刚牌局 帐号 %Jimmy ¥ 77.00 好友组局 世界大战 大厅 战绩查询 我的",
+          "https://prod-broadgame-client.api987.com/?time=1781751411532": "System.import('./index.8ea1f.js').catch(function(err) { console.error(err); })"
+        },
+        "url": "https://prod-broadgame-client.api987.com/vue/#/home"
+      }
+    }
+  },
+  "allNav": [
+    {
+      "t": 1781751618512,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=904949&gameType=1"
+    },
+    {
+      "t": 1781751618518,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=904949&gameType=1"
+    },
+    {
+      "t": 1781751640163,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/detail?room=904949&gameType=1"
+    },
+    {
+      "t": 1781751640164,
+      "url": "https://prod-broadgame-client.api987.com/vue/#/home"
+    }
+  ]
+}
