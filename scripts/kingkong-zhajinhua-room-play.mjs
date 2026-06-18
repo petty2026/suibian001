@@ -3,8 +3,8 @@ import { mkdir, writeFile } from 'fs/promises';
 import path from 'path';
 
 const BASE = 'https://kingkong.ac/mobile.html';
-const ROOM = '501813';
-const OUT = '/workspace/docs/kingkong-review/screenshots/zhajinhua-room-501813';
+const ROOM = process.env.ROOM || '984332';
+const OUT = `/workspace/docs/kingkong-review/screenshots/zhajinhua-room-${ROOM}`;
 
 const vueFrame = (page) => page.frames().find((f) => f.url().includes('prod-broadgame-client.api987.com/vue'));
 const cocosFrame = (page) => page.frames().find((f) => /prod-broadgame-client\.api987\.com\/\?time=/.test(f.url()));
@@ -23,7 +23,7 @@ async function readAllText(page) {
   for (const fr of page.frames()) {
     if (!fr.url().includes('prod-broadgame')) continue;
     const t = await fr.evaluate(() => (document.body?.innerText || '').replace(/\s+/g, ' ').trim()).catch(() => '');
-    if (t) out[fr.url().slice(0, 120)] = t.slice(0, 1200);
+    if (t) out[fr.url().slice(0, 120)] = t.slice(0, 1500);
   }
   return out;
 }
@@ -57,84 +57,59 @@ async function enterRoom(page, report) {
   const vf = vueFrame(page);
   if (!vf) return { error: 'no vue frame' };
 
-  // Join via room number keypad
-  await clickCanvas(page, 195, 560, 8000);
-  report.steps.push({ action: 'click-加入房间', text: await readAllText(page), url: vf.url() });
-  await snap(page, '01-join-keypad');
-
-  for (const d of ROOM.split('')) {
-    const col = (Number(d) - 1) % 3;
-    const row = Math.floor(Number(d === '0' ? 9 : Number(d) - 1) / 3);
-    const xs = [100, 195, 290];
-    const ys = [520, 570, 620, 670];
-    const xi = Number(d) === 0 ? 1 : col;
-    const yi = Number(d) === 0 ? 3 : row;
-    await clickCanvas(page, xs[xi] ?? 195, ys[yi] ?? 620, 800);
-  }
-  report.steps.push({ action: `input-room-${ROOM}`, text: await readAllText(page), url: vf.url() });
-  await snap(page, '02-after-room-input');
-
-  // Fallback: direct hash navigation
-  if (!vf.url().includes(`room=${ROOM}`)) {
-    await vf.evaluate((room) => { window.location.hash = `#/detail?room=${room}&gameType=1`; }, ROOM);
-    await page.waitForTimeout(12000);
-    report.steps.push({ action: 'direct-nav-detail', text: await readAllText(page), url: vueFrame(page)?.url() });
-    await snap(page, '03-direct-detail');
-  } else {
-    await page.waitForTimeout(8000);
-    await snap(page, '03-in-room');
-  }
+  await vf.evaluate((room) => { window.location.hash = `#/detail?room=${room}&gameType=1`; }, ROOM);
+  await page.waitForTimeout(14000);
+  report.steps.push({ action: 'direct-nav-detail', text: await readAllText(page), url: vf.url() });
+  await snap(page, '01-in-room');
 
   return { url: vueFrame(page)?.url(), cocosUrl: cocosFrame(page)?.url() };
 }
 
-async function playInRoom(page, report) {
-  const interactions = [];
+async function tryBuyIn(page, report) {
+  const steps = [];
+  // click empty seat top
+  await clickCanvas(page, 195, 280, 4000);
+  await snap(page, '02-seat-click');
+  steps.push({ action: 'click-seat-top', text: await readAllText(page) });
 
-  // Wait for Cocos table to render
-  await page.waitForTimeout(8000);
-  await snap(page, '04-table-loaded');
+  // try +50 quick add and confirm
+  for (const [name, x, y] of [
+    ['plus-50', 145, 620],
+    ['plus-50-alt', 195, 600],
+    ['confirm', 280, 720],
+    ['confirm-center', 195, 720],
+  ]) {
+    await clickCanvas(page, x, y, 2500);
+    steps.push({ action: name, text: await readAllText(page) });
+    await snap(page, `03-${name}`);
+  }
 
-  const seatClicks = [
-    ['seat-top', 195, 300],
-    ['seat-left', 70, 420],
-    ['seat-right', 320, 420],
-    ['seat-bottom-left', 70, 620],
-    ['seat-bottom-right', 320, 620],
-    ['seat-center-msg', 195, 450],
-  ];
+  report.buyIn = steps;
+}
 
-  for (const [name, x, y] of seatClicks) {
-    await clickCanvas(page, x, y, 6000);
-    interactions.push({ action: `click-${name}`, text: await readAllText(page), url: vueFrame(page)?.url() });
+async function exploreSeatedState(page, report) {
+  const steps = [];
+  await page.waitForTimeout(3000);
+  await snap(page, '04-table-state');
+
+  for (const [name, x, y] of [
+    ['leave-seat', 195, 780],
+    ['leave-seat-alt', 195, 820],
+    ['emoji', 355, 780],
+    ['menu', 35, 120],
+    ['share', 355, 120],
+    ['minimize', 195, 100],
+    ['trophy', 35, 780],
+    ['stats', 90, 780],
+    ['seat-empty-left', 70, 420],
+    ['seat-empty-right', 320, 420],
+  ]) {
+    await clickCanvas(page, x, y, 4500);
+    steps.push({ action: `click-${name}`, text: await readAllText(page), url: vueFrame(page)?.url() });
     await snap(page, `05-${name}`);
   }
 
-  // Menu / share / stats icons from screenshot
-  for (const [name, x, y] of [
-    ['menu', 35, 120],
-    ['share', 355, 120],
-    ['trophy', 35, 780],
-    ['stats', 90, 780],
-    ['minimize', 195, 100],
-  ]) {
-    await clickCanvas(page, x, y, 4000);
-    interactions.push({ action: `click-${name}`, text: await readAllText(page), url: vueFrame(page)?.url() });
-    await snap(page, `06-${name}`);
-  }
-
-  // Try common in-game action areas (bet/fold/call)
-  for (const [name, x, y] of [
-    ['action-bottom-center', 195, 760],
-    ['action-bottom-left', 80, 760],
-    ['action-bottom-right', 310, 760],
-  ]) {
-    await clickCanvas(page, x, y, 4000);
-    interactions.push({ action: `click-${name}`, text: await readAllText(page) });
-    await snap(page, `07-${name}`);
-  }
-
-  report.inRoom = { interactions, finalText: await readAllText(page), finalUrl: vueFrame(page)?.url() };
+  report.explore = steps;
 }
 
 async function main() {
@@ -158,17 +133,16 @@ async function main() {
 
   await loginAndEnterZhajinhua(page);
   report.entry = { url: vueFrame(page)?.url(), text: await readAllText(page) };
-  await snap(page, '00-zhajinhua-join');
 
-  const roomResult = await enterRoom(page, report);
-  report.roomResult = roomResult;
-
-  await playInRoom(page, report);
+  report.roomResult = await enterRoom(page, report);
+  await tryBuyIn(page, report);
+  await exploreSeatedState(page, report);
   report.nav = nav;
+  report.final = { url: vueFrame(page)?.url(), text: await readAllText(page) };
 
   await writeFile(path.join(OUT, 'play-report.json'), JSON.stringify(report, null, 2));
   await browser.close();
-  console.log('done', report.roomResult?.url || report.roomResult?.error);
+  console.log('done', report.roomResult?.url);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
