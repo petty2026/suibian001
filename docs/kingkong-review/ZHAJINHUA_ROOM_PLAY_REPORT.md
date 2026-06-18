@@ -21,7 +21,17 @@
 
 ---
 
-## 984332 新发现（相对 501813）
+## 本次实测：创建 / 入座 / 离座（2026-06-18）
+
+| 操作 | 结果 | 截图 |
+|------|------|------|
+| **创建房间** | ✅ 弹出与加入相同的 6 位房号键盘 | `zhajinhua-flows/F2-create-keypad.png` |
+| **加入 984332** | ⚠️ 键盘可输入，但当前房间**已解散** | `zhajinhua-flows/B4-in-room-table.png` |
+| **点击空座 → 带入** | ✅ 984332 有效时弹出带入弹窗（默认 ¥0） | `zhajinhua-room-984332/01-in-room-page.png` |
+| **确认带入 → 入座** | ⚠️ 自动化未能稳定完成；误触易跳 `#/home` | `zhajinhua-flows/F5-seat-buyin.png` |
+| **离座** | ⚠️ 984332 已解散无法复测；真机截图可见「离座」无二次确认 | 用户真机 + `984332/05-leave-seat-page.png` |
+
+---
 
 | 类型 | 新发现 |
 |------|--------|
@@ -69,9 +79,13 @@
 ## Figma
 
 - [Slide 17 · 炸金花牌桌过程（合并）](https://www.figma.com/design/T8PcoyyXrzMoNM5YFlrTJU?node-id=96-2)
-- [Slide 18 · 984332 入座 / 资料卡 / 等待](https://www.figma.com/design/T8PcoyyXrzMoNM5YFlrTJU?node-id=99-2)
+- [Slide 18 · 全流程问题汇总（4 张截图）](https://www.figma.com/design/T8PcoyyXrzMoNM5YFlrTJU?node-id=99-2)
+- [Slide 19 · 创建/加入房间](https://www.figma.com/design/T8PcoyyXrzMoNM5YFlrTJU?node-id=111-10)
+- [Slide 20 · 进房/带入/房间失效](https://www.figma.com/design/T8PcoyyXrzMoNM5YFlrTJU?node-id=111-31)
+- [Slide 21 · 入座/离座/牌桌信息](https://www.figma.com/design/T8PcoyyXrzMoNM5YFlrTJU?node-id=111-56)
 
 ## 截图
 
+- `screenshots/zhajinhua-flows/` — 创建/加入/进房实测（F1–F8、A/B 系列）
 - `screenshots/zhajinhua-room-501813/`
 - `screenshots/zhajinhua-room-984332/`
