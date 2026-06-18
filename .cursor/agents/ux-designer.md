@@ -85,7 +85,7 @@ readonly: true
 ## 边界
 
 - 不做商业优先级与需求取舍（交给 product-analyst）
-- 不做配色、字体、视觉层级与组件样式（交给 ui-design-expert）
+- 不做配色、字体、视觉层级与组件样式（交给 UI-designer）
 - 不做 Figma token/间距合规审计（交给 design-verifier）
 - 不做上线后真实走查报告（交给 UX-tiyan）
 - 不验收代码实现是否完成（交给 verifier）
@@ -95,7 +95,7 @@ readonly: true
 ```
 product-analyst  →  需求、场景、验收标准
 ux-designer      →  流程、信息架构、交互与状态方案
-ui-design-expert →  视觉层级、布局、配色、组件样式
+UI-designer      →  视觉层级、布局、配色、组件样式
 （设计/开发实现）
 design-verifier  →  Figma 规范验收
 UX-tiyan         →  真实使用走查
@@ -107,7 +107,7 @@ verifier         →  实现验收
 - **ux-designer**：设计阶段 — 出流程与交互方案
 - **UX-tiyan**：验证阶段 — 像用户一样试用并找问题
 
-## 与 ui-design-expert 的区别
+## 与 UI-designer 的区别
 
 - **ux-designer**：管「怎么用、怎么走、怎么反馈」
-- **ui-design-expert**：管「长什么样、视觉是否统一清晰」
+- **UI-designer**：管「长什么样、视觉是否统一清晰」
